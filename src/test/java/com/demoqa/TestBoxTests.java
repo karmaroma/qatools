@@ -22,18 +22,23 @@ public class TestBoxTests  {
 
     @Test
     void fillFormTest() {
+        String name = "John Joe";
+        String mail = "JohnDoe@mail.com";
+        String address = "4781 S Citation dr";
+        String address2 = "5681 Yamato rd";
+
         open("/text-box");
-        $ ("#userName").setValue("Alexey Nifontov");
+        $ ("#userName").setValue(name);
      //   $ ("[id=userName]").setValue("Alexey Nifontov");
-        $("#userEmail").setValue("mail@testme.com");
-        $("#currentAddress").setValue("4781 S Citation dr");
-        $("#permanentAddress").setValue("5681 Yamato rd");
+        $("#userEmail").setValue(mail);
+        $("#currentAddress").setValue(address);
+        $("#permanentAddress").setValue(address2);
         $("#submit").click();
-        $("#output #name").shouldHave(text("Alexey"));
+        $("#output #name").shouldHave(text(name));
         //$("#output").$("#name").shouldHave(Condition.text("Alexey"));
-        $("#output #email").shouldHave(text("mail@testme.com"));
-        $("#output #currentAddress").shouldHave(text("4781 S Citation dr"));
-        $("#output #permanentAddress").shouldHave(text("5681 Yamato rd"));
+        $("#output #email").shouldHave(text(mail));
+        $("#output #currentAddress").shouldHave(text(address));
+        $("#output #permanentAddress").shouldHave(text(address2));
 
 
 
