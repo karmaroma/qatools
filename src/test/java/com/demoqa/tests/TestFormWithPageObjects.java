@@ -1,17 +1,15 @@
-package com.demoqa;
+package com.demoqa.tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TestForm {
+public class TestFormWithPageObjects {
 
     @BeforeAll
     static void configire() {
@@ -28,8 +26,6 @@ public class TestForm {
         String mail = "John_Doe@gmail.com";
         String phone = "2128506100";
         String address = "4781 Yamato rd. Apt 206";
-
-
 
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
@@ -58,7 +54,16 @@ public class TestForm {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+
+
+        $(".modal-dialog").should(appear);
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+       //
+        // $(".table-responsive table").shouldHave(name), (text(lastname), (text(mail), (text(phone));
         $("#subjectsContainer").setValue("Computer Science").pressEnter();
+
+
+
 
 
 
